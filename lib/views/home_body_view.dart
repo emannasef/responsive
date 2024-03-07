@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:responsive/widgets_test/custom_sliver_grid.dart';
 
-class HomeBodyView extends StatelessWidget {
-  const HomeBodyView({super.key});
+class Section3 extends StatelessWidget {
+  const Section3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,17 @@ class HomeBodyView extends StatelessWidget {
               })
         ],
       ),
+    );
+  }
+}
+
+class HomeBodyView extends StatelessWidget {
+  const HomeBodyView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: [CustomSliverGrid()],
     );
   }
 }
