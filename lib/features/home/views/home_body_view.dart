@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:responsive/widgets_test/custom_sliver_grid.dart';
+import 'package:responsive/features/home/widgets/custom_sliver_grid.dart';
+import 'package:responsive/features/home/widgets/custom_sliver_list.dart';
 
 class Section3 extends StatelessWidget {
   const Section3({super.key});
@@ -47,8 +48,24 @@ class HomeBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [CustomSliverGrid()],
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: 16),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: LayoutBuilder(
+                builder: (context, constraints) => constraints.maxWidth > 600
+                    ? const ListInTablet()
+                    : const CustomSliverGrid()),
+          ),
+          const CustomSliverList()
+        ],
+      ),
     );
   }
 }
