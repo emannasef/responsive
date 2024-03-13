@@ -38,12 +38,20 @@ class ListInTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (ctx, index) {
-        return const SliverItemWidget();
-      },
-      itemCount: 10,
-      scrollDirection: Axis.horizontal,
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return const AspectRatio(
+              aspectRatio: 1,
+              child: Padding(
+                padding:  EdgeInsets.all(8.0),
+                child: SliverItemWidget(),
+              ));
+        },
+        itemCount: 15,
+        scrollDirection: Axis.horizontal,
+      ),
     );
   }
 }
