@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:responsive/features/home/widgets/custom_sliver_grid.dart';
-import 'package:responsive/features/home/widgets/custom_sliver_list.dart';
+import 'package:responsive/features/home/views/desktop_layout.dart';
+import 'package:responsive/features/home/views/mobile_layout.dart';
+import 'package:responsive/features/home/views/tablet_layout.dart';
 
-class Section3 extends StatelessWidget {
-  const Section3({super.key});
+class HomeBodyView extends StatelessWidget {
+  const HomeBodyView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: 16),
+      child: LayoutBuilder(builder: (context, constarns) {
+        if (constarns.maxWidth < 600) {
+          return const MobileLayout();
+        } else if (constarns.maxWidth < 900) {
+          return const TabletLayout();
+        } else {
+          return const DesktopLayout();
+        }
+      }),
+    );
+  }
+}
+
+class HomeBodyEmanTrial extends StatelessWidget {
+  const HomeBodyEmanTrial({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,33 +58,6 @@ class Section3 extends StatelessWidget {
                   ),
                 );
               })
-        ],
-      ),
-    );
-  }
-}
-
-class HomeBodyView extends StatelessWidget {
-  const HomeBodyView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: 16),
-      child: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: LayoutBuilder(
-                builder: (context, constraints) => constraints.maxWidth > 600
-                    ? const ListInTablet()
-                    : const CustomSliverGrid()),
-          ),
-          const CustomSliverList()
         ],
       ),
     );

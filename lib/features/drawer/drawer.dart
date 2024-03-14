@@ -11,6 +11,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      elevation: 0,
       child: ListView(
         children: const [
           DrawerHeader(
