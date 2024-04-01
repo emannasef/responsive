@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive/features/drawer/drawer.dart';
 import 'package:responsive/features/home/views/tablet_layout.dart';
 import 'package:responsive/features/home/widgets/custom_sliver_grid.dart';

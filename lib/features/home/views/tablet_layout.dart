@@ -3,7 +3,7 @@ import 'package:responsive/features/home/widgets/custom_sliver_grid.dart';
 import 'package:responsive/features/home/widgets/custom_sliver_list.dart';
 
 class TabletLayout extends StatelessWidget {
-  const TabletLayout({super.key});
+const TabletLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
